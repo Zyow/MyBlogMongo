@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class User {
 
-	private String firstname;
-	private String lastname;
+	private String nom;
+	private String prenom;
+	private String email;
+	private String username;
 }

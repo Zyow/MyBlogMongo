@@ -34,11 +34,11 @@ public class ExemplesController {
 	
 	@GetMapping("name")
 	public String name(
-			@RequestParam String firstname,
-			@RequestParam (required = false) String lastname
+			@RequestParam String nom,
+			@RequestParam (required = false) String prenom
 			){
 		
-		return firstname + " " + lastname;
+		return nom + " " + prenom;
 	}
 	
 	
@@ -50,6 +50,6 @@ public class ExemplesController {
 		//	}
 	@PostMapping
 	public String JePost(@RequestBody User utilisateur) {
-		return "Hello " + utilisateur.getFirstname() + " " + utilisateur.getLastname() + " !";
+		return "Hello " + utilisateur.getNom() + " " + utilisateur.getPrenom() + " !";
 	}
 }
