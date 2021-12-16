@@ -49,8 +49,8 @@ public class UserController {
 	 * @param username
 	 * @return User
 	 */
-	@GetMapping ("{username}")
-	public Optional<User> findById(@PathVariable String username) {
+	@GetMapping ("/username/{username}")
+	public User findByUsername(@PathVariable String username) {
 		return this.service.findByUsername(username);
 	}
 	
