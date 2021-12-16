@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.mxsz.MonBlog.dtos.GetUserProfilDTO;
 import fr.mxsz.MonBlog.entities.User;
 import fr.mxsz.MonBlog.services.UserService;
 
@@ -52,6 +53,11 @@ public class UserController {
 	@GetMapping ("/username/{username}")
 	public User findByUsername(@PathVariable String username) {
 		return this.service.findByUsername(username);
+	}
+	
+	@GetMapping("profil/{id}")
+	public GetUserProfilDTO getUserProfil(String id) {
+		return this.service.getProfil(id);
 	}
 	
 	/**

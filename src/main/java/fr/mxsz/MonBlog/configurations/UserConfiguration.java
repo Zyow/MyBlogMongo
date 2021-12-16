@@ -1,5 +1,6 @@
 package fr.mxsz.MonBlog.configurations;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,7 +11,10 @@ import fr.mxsz.MonBlog.services.UserService;
 public class UserConfiguration {
 
 	@Bean
-	public UserService userService(UserRepository repository) {
-		return new UserService(repository);
+	public UserService userService(
+			UserRepository repository,
+			ModelMapper mapper
+			) {
+		return new UserService(repository, mapper);
 	}
 }

@@ -3,15 +3,22 @@ package fr.mxsz.MonBlog.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
+
+import fr.mxsz.MonBlog.dtos.GetUserProfilDTO;
 import fr.mxsz.MonBlog.entities.User;
 import fr.mxsz.MonBlog.repositories.UserRepository;
 
 public class UserService {
 
-	UserRepository repository;
+	private UserRepository repository;
+	private ModelMapper mapper;
 	
-	public UserService(UserRepository repository) {
+	public UserService(
+			UserRepository repository,
+			ModelMapper mapper) {
 		this.repository = repository;
+		this.mapper = mapper;
 	}
 	
 	public List<User>findAll(){
@@ -32,5 +39,16 @@ public class UserService {
 	
 	public void delete(User user) {
 		this.repository.delete(user);
+	}
+
+	public GetUserProfilDTO getProfil(String id) {
+		Optional<User> user = this.repository.findById(id);
+		
+		//Mapping > https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+		ModelMapper mapper = new ModelMapper();
+		GetUserProfilDTO getUserProfilDTO = mapper.map(user.get(),GetUserProfilDTO.class);
+		
+		return getUserProfilDTO;
+		
 	}
 }

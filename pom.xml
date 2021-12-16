@@ -12,7 +12,7 @@
 	<artifactId>MonBlog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MonBlog</name>
-	<description>Création d&apos;une API pour un Blog</description>
+	<description>Création une API pour un Blog</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -42,6 +42,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
+		<dependency>
+		    <groupId>org.modelmapper</groupId>
+		    <artifactId>modelmapper</artifactId>
+		    <version>2.4.5</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
