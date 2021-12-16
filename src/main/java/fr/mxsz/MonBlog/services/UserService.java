@@ -1,6 +1,7 @@
 package fr.mxsz.MonBlog.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import fr.mxsz.MonBlog.entities.User;
 import fr.mxsz.MonBlog.repositories.UserRepository;
@@ -17,8 +18,12 @@ public class UserService {
 		return this.repository.findAll();
 	}
 	
-	public User findById(String id) {
+	public Optional<User> findById(String id) {
 		return this.repository.findById(id);
+	}
+	
+	public User findByUsername(String username) {
+		return this.repository.findByUsername(username);
 	}
 	
 	public User save(User user) {

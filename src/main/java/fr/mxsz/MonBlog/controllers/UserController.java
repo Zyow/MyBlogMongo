@@ -1,9 +1,11 @@
 package fr.mxsz.MonBlog.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,7 +31,27 @@ public class UserController {
 	 */
 	@GetMapping
 	public List<User> findAll() {
-		return service.findAll();
+		return this.service.findAll();
+	}
+	
+	/**
+	 * Méthode qui permet de rechercher un utilisateur par son id
+	 * @param id
+	 * @return User
+	 */
+	@GetMapping ("{id}")
+	public Optional<User> findById(@PathVariable String id) {
+		return this.service.findById(id);
+	}
+	
+	/**
+	 * Méthode qui permet de rechercher un utilisateur par son usernae
+	 * @param username
+	 * @return User
+	 */
+	@GetMapping ("{username}")
+	public Optional<User> findById(@PathVariable String username) {
+		return this.service.findByUsername(username);
 	}
 	
 	/**

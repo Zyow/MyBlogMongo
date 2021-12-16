@@ -6,5 +6,5 @@ import fr.mxsz.MonBlog.entities.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
 	
-	User findById(String id);
+	User findByUsername(String username);
 }
