@@ -17,6 +17,10 @@ public class UserService {
 		return this.repository.findAll();
 	}
 	
+	public User findById(String id) {
+		return this.repository.findById(id);
+	}
+	
 	public User save(User user) {
 		return this.repository.save(user);
 	}
