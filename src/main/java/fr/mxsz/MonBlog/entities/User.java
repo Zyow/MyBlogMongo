@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class User {
 
+	private String id; 
 	private String nom;
 	private String prenom;
 	private String email;
